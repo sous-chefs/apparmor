@@ -24,5 +24,6 @@ when "ubuntu"
   service "apparmor" do
     action actions
     supports [ :restart, :reload, :status ]
+    stop_command "/usr/sbin/service apparmor teardown"
   end
 end
