@@ -11,7 +11,7 @@ describe_recipe 'apparmor' do
   end
 
   it 'prevents apparmor from starting up' do
-    output = %x(ls /etc/rc?.d/*apparmor 2>&1)
+    output = %x(ls /etc/rc?.d/S*apparmor 2>&1)
     if node['apparmor']['disable'] == true then
       assert_match /apparmor: No such file or directory/, output
       assert_equal 2, $?.exitstatus

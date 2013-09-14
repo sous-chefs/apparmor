@@ -20,10 +20,11 @@
 
 case node[:platform]
 when "ubuntu"
-  actions = node[:apparmor][:disable] ? [:stop, :disable] : [:start, :enable]
+
+  actions = node[:apparmor][:disable] ? [ :stop, :enable, :disable ] : [:start, :enable]
   service "apparmor" do
     action actions
     supports [ :restart, :reload, :status ]
-    stop_command "/usr/sbin/service apparmor teardown && /usr/sbin/update-rc.d -f apparmor remove"
+    stop_command "/usr/sbin/service apparmor teardown"
   end
 end
