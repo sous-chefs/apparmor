@@ -20,9 +20,17 @@
 
 case node[:platform]
 when "ubuntu"
-  actions = node[:apparmor][:disable] ? [:stop, :disable] : [:start, :enable]
+
+  package_action = node[:apparmor][:disable] ? :remove : :install
+
+  package "apparmor" do
+    action package_action
+  end
+
+  actions = node[:apparmor][:disable] ? [ :stop, :disable ] : [:start, :enable]
   service "apparmor" do
     action actions
     supports [ :restart, :reload, :status ]
+    stop_command "/usr/sbin/service apparmor teardown"
   end
 end
