@@ -3,21 +3,19 @@ describe_recipe 'apparmor' do
     output = %x(/usr/sbin/service apparmor status 2>&1)
 
     if node['apparmor']['disable'] == true then
-      assert_match /0 profiles are loaded./, output
       assert_equal 2, $?.exitstatus
     else
       assert_equal 0, $?.exitstatus
     end
   end
 
-  it 'prevents apparmor from starting up' do
-    output = %x(ls /etc/rc?.d/S*apparmor 2>&1)
-    if node['apparmor']['disable'] == true then
-      assert_match /apparmor: No such file or directory/, output
-      assert_equal 2, $?.exitstatus
+  it 'removes apparmor' do
+    if node['apparmor']['disable'] then
+      output = %x(dpkg -l apparmor | grep ii 2>&1)
+      assert_match /^$/, output
+      assert_equal 1, $?.exitstatus
     else
-      assert_match /apparmor/, output
-      assert_equal 0, $?.exitstatus
+      package("apparmor").must_be_installed
     end
   end
 end
