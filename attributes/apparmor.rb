@@ -1,1 +1,1 @@
-default[:apparmor][:disable] = true
+default['apparmor']['disable'] = true

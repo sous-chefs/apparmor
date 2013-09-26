@@ -18,19 +18,18 @@
 # limitations under the License.
 #
 
-case node[:platform]
-when "ubuntu"
+if platform_family?('debian')
+  package_action = node['apparmor']['disable'] ? :remove : :install
+  Chef::Log.info "package_action: #{package_action.inspect}"
 
-  package_action = node[:apparmor][:disable] ? :remove : :install
-
-  package "apparmor" do
+  package 'apparmor' do
     action package_action
   end
 
-  actions = node[:apparmor][:disable] ? [ :stop, :disable ] : [:start, :enable]
-  service "apparmor" do
-    action actions
-    supports [ :restart, :reload, :status ]
-    stop_command "/usr/sbin/service apparmor teardown"
+  actions = node['apparmor']['disable'] ? [:stop, :disable] : [:start, :enable]
+  service 'apparmor' do
+    action       actions
+    supports     [:restart, :reload, :status]
+    stop_command '/usr/sbin/service apparmor teardown'
   end
 end

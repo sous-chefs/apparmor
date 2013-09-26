@@ -1,24 +1,24 @@
----
 driver_plugin: vagrant
 driver_config:
   require_chef_omnibus: latest
 
 platforms:
-- name: ubuntu-12.10
-  run_list:
-  - recipe[apt]
-- name: ubuntu-12.04
-  run_list:
-  - recipe[apt]
+  - name: ubuntu-12.10
+    run_list:
+    - recipe[apt::default]
+  - name: ubuntu-12.04
+    run_list:
+    - recipe[apt::default]
+
 suites:
-- name: disable
-  run_list:
-    - recipe[apparmor]
-    - recipe[minitest-handler]
-- name: enable
-  run_list:
-     - recipe[apparmor]
-     - recipe[minitest-handler]
-  attributes:
-    apparmor:
-      disable: false
+  - name: disable
+    run_list:
+      - recipe[apparmor::default]
+      - recipe[minitest-handler::default]
+  - name: enable
+    run_list:
+       - recipe[apparmor::default]
+       - recipe[minitest-handler::default]
+    attributes:
+      apparmor:
+        disable: false
