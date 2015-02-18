@@ -1,6 +1,6 @@
 name              'apparmor'
-maintainer        'Opscode, Inc.'
-maintainer_email  'cookbooks@opscode.com'
+maintainer        'Chef Software, Inc.'
+maintainer_email  'cookbooks@chef.io'
 license           'Apache 2.0'
 description       'Disables apparmor service on Ubuntu'
 version           '0.9.3'
