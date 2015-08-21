@@ -1,8 +1,9 @@
-site 'https://supermarket.chef.io'
+source 'https://supermarket.chef.io'
+
 metadata
 
 group :integration do
-  cookbook 'apt',              '~> 2.0'
-  cookbook 'yum',              '~> 2.0'
-  cookbook 'minitest-handler', '~> 0.2'
+  cookbook 'apt'
+  cookbook 'yum'
+  cookbook 'minitest-handler'
 end
