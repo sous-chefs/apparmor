@@ -28,8 +28,8 @@ if platform_family?('debian')
 
   actions = node['apparmor']['disable'] ? [:stop, :disable] : [:start, :enable]
   service 'apparmor' do
-    action       actions
-    supports     [:restart, :reload, :status]
+    action actions
+    supports [:restart, :reload, :status]
     stop_command '/usr/sbin/service apparmor teardown'
   end
 end
