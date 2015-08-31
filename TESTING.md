@@ -1,7 +1,7 @@
 This cookbook uses a variety of testing components:
 
 - Unit tests: [ChefSpec](https://github.com/acrmp/chefspec)
-- Integration tests: [Test Kitchen](https://github.com/chef/test-kitchen)
+- Integration tests: [Test Kitchen](http://kitchen.ci/)
 - Chef Style lints: [Foodcritic](https://github.com/acrmp/foodcritic)
 - Ruby Style lints: [Rubocop](https://github.com/bbatsov/rubocop)
 
@@ -47,7 +47,5 @@ Development
     - `bundle exec kitchen test`
 
 7. Assuming the tests pass, open a Pull Request on GitHub
-8. Open a JIRA ticket for this compontent, linking the JIRA ticket to the Pull Request and visa versa.
-9. Mark the JIRA ticket as "Fix Provided"
 
 For more information, see [Opscode's Contribution Guidelines](https://docs.chef.io/community_contributions.html).
