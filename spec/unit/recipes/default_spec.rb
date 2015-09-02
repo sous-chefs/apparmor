@@ -4,7 +4,7 @@ describe 'default recipe on Ubuntu 14.04' do
   let(:chef_run) do
     ChefSpec::ServerRunner.new do |node|
       node.automatic[:lsb][:codename] = 'trusty'
-    end.converge('activemq::default')
+    end.converge('apparmor::default')
   end
 
   it 'converges successfully' do
