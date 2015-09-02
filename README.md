@@ -5,6 +5,16 @@ apparmor Cookbook
 
 Stops and disables the apparmor service on Ubuntu.
 
+Requirements
+------------
+### Platforms
+- Ubuntu
+
+### Chef
+Chef 11+
+
+### Cookbooks
+- none
 
 Development
 -----------
