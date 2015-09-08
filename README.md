@@ -1,6 +1,6 @@
 apparmor Cookbook
 =================
-[![Build Status](https://travis-ci.org/opscode-cookbooks/apparmor.svg?branch=master)](http://travis-ci.org/opscode-cookbooks/apparmor)
+[![Build Status](https://travis-ci.org/chef-cookbooks/apparmor.svg?branch=master)](http://travis-ci.org/chef-cookbooks/apparmor)
 [![Cookbook Version](https://img.shields.io/cookbook/v/apparmor.svg)](https://supermarket.chef.io/cookbooks/apparmor)
 
 Stops and disables the apparmor service on Ubuntu.
@@ -9,6 +9,7 @@ Requirements
 ------------
 ### Platforms
 - Ubuntu
+- Debian
 
 ### Chef
 - Chef 11+
