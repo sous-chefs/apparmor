@@ -10,5 +10,3 @@ LineLength:
   Enabled: false
 MethodLength:
   Enabled: false
-SpecialGlobalVars:
-  Enabled: false
