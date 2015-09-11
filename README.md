@@ -7,50 +7,25 @@ Stops and disables the apparmor service on Ubuntu.
 
 Requirements
 ------------
-### Platforms
+#### Platforms
 - Ubuntu
 - Debian
 
-### Chef
+#### Chef
 - Chef 11+
 
-### Cookbooks
+#### Cookbooks
 - none
 
-Development
------------
-This section details "quick development" steps. For a detailed explanation, see [[Contributing.md]].
 
-1. Clone this repository from GitHub:
-
-        $ git clone git@github.com:chef-cookbooks/apparmor.git
-
-2. Create a git branch
-
-        $ git checkout -b my_bug_fix
-
-3. Install dependencies:
-
-        $ bundle install
-
-4. Make your changes/patches/fixes, committing appropiately
-5. **Write tests**
-6. Run the tests:
-    - `bundle exec foodcritic -f any .`
-    - `bundle exec rspec`
-    - `bundle exec rubocop`
-    - `bundle exec kitchen test`
-
-  In detail:
-    - Foodcritic will catch any Chef-specific style errors
-    - RSpec will run the unit tests
-    - Rubocop will check for Ruby-specific style errors
-    - Test Kitchen will run and converge the recipes
+Usage
+-----
+Simply add `recipe[activemq]` to a run list.
 
 
 License & Authors
 -----------------
-- Author:: Joshua Timberman (<joshua@chef.io>)
+- Author:: Cookbook Engineering Team (<cookbooks@chef.io>)
 
 ```text
 Copyright:: 2009-2015, Chef Software, Inc
