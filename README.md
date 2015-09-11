@@ -23,7 +23,7 @@ This section details "quick development" steps. For a detailed explanation, see 
 
 1. Clone this repository from GitHub:
 
-        $ git clone git@github.com:opscode-cookbooks/apparmor.git
+        $ git clone git@github.com:chef-cookbooks/apparmor.git
 
 2. Create a git branch
 
