@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
     - vendor/**/*
+    - files/default/test
 
 AlignParameters:
   Enabled: false
