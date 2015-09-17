@@ -1,5 +1,6 @@
 apparmor Cookbook
 =================
+
 [![Build Status](https://travis-ci.org/chef-cookbooks/apparmor.svg?branch=master)](http://travis-ci.org/chef-cookbooks/apparmor)
 [![Cookbook Version](https://img.shields.io/cookbook/v/apparmor.svg)](https://supermarket.chef.io/cookbooks/apparmor)
 
@@ -20,16 +21,16 @@ Requirements
 
 Usage
 -----
-Simply add `recipe[activemq]` to a run list.
+Simply add `recipe[apparmor]` to a run list.
 
 
 License & Authors
 -----------------
-- Author:: Cookbook Engineering Team (<cookbooks@chef.io>)
 
-```text
-Copyright:: 2009-2015, Chef Software, Inc
+**Author:** Cookbook Engineering Team (<cookbooks@chef.io>)
 
+**Copyright:** 2009-2015, Chef Software, Inc.
+```
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
