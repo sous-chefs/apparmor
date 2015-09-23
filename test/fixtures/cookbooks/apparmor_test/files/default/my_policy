@@ -1,0 +1,15 @@
+# vim:syntax=apparmor
+#include <tunables/global>
+
+/usr/sbin/my_policy {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/user-tmp>
+
+  capability net_raw,
+  capability setuid,
+  capability setgid,
+  capability dac_override,
+  network raw,
+  network packet
+}

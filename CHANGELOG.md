@@ -2,6 +2,12 @@ apparmor Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the apparmor cookbook.
 
+v1.0.0 (2015-09-23)
+-------------------
+WARNING: This is a breaking release that includes a refactor of the default behavior and the inclusion of a LWRP
+- Default behavior is now to install and enable AppArmor instead of disable / remove
+- Added new LWRP for managing AppArmor policies.  See the Readme for usage.
+- Added bats tests in Test Kitchen
 
 v0.9.4 (2015-09-11)
 -------------------

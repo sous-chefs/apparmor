@@ -16,11 +16,14 @@ suites:
   - name: disable
     run_list:
       - recipe[apparmor::default]
-      - recipe[minitest-handler::default]
-  - name: enable
-    run_list:
-       - recipe[apparmor::default]
-       - recipe[minitest-handler::default]
     attributes:
       apparmor:
-        disable: false
+        disable: true
+  - name: add
+    run_list:
+       - recipe[apparmor::default]
+       - recipe[apparmor_test::add]
+  - name: remove
+    run_list:
+       - recipe[apparmor::default]
+       - recipe[apparmor_test::remove]
