@@ -17,4 +17,4 @@
 # limitations under the License.
 #
 
-default['apparmor']['disable'] = true
+default['apparmor']['disable'] = false
