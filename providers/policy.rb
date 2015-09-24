@@ -21,19 +21,19 @@ def whyrun_supported?
 end
 
 action :add do
-    cookbook_file "/etc/apparmor.d/#{new_resource.name}" do
-      cookbook new_resource.source_cookbook if new_resource.source_cookbook
-      source new_resource.source_filename if new_resource.source_filename
-      owner 'root'
-      group 'root'
-      mode '0644'
-      notifies :reload, 'service[apparmor]', :immediately
-    end
+  cookbook_file "/etc/apparmor.d/#{new_resource.name}" do
+    cookbook new_resource.source_cookbook if new_resource.source_cookbook
+    source new_resource.source_filename if new_resource.source_filename
+    owner 'root'
+    group 'root'
+    mode '0644'
+    notifies :reload, 'service[apparmor]', :immediately
+  end
 
-    service 'apparmor' do
-      supports status: true, restart: true, reload: true
-      action [:nothing]
-    end
+  service 'apparmor' do
+    supports status: true, restart: true, reload: true
+    action [:nothing]
+  end
 end
 
 action :remove do
