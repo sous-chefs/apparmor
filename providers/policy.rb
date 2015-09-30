@@ -20,6 +20,8 @@ def whyrun_supported?
   true
 end
 
+use_inline_resources
+
 action :add do
   cookbook_file "/etc/apparmor.d/#{new_resource.name}" do
     cookbook new_resource.source_cookbook if new_resource.source_cookbook
