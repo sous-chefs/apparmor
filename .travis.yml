@@ -16,10 +16,6 @@ env:
   matrix:
   - INSTANCE=disable-ubuntu-1404
   - INSTANCE=disable-ubuntu-1204
-  - INSTANCE=add-ubuntu-1404
-  - INSTANCE=add-ubuntu-1204
-  - INSTANCE=remove-ubuntu-1404
-  - INSTANCE=remove-ubuntu-1204
 
 # Don't `bundle install`
 install: echo "skip bundle install"
