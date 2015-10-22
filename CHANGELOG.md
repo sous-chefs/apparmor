@@ -2,6 +2,14 @@ apparmor Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the apparmor cookbook.
 
+v2.0.0 (2015-10-22)
+-------------------
+- Converted the LWRP to a 12.5 custom resource with 12.X compatibility provided by compat_resource. This cookbook now requires Chef 12
+- Updated Travis to use kitchen-docker for full integration tests and chefdk for lint/unit testing
+- Added the Chef standard rubocop config
+- Updated development dependencies in the Gemfile
+- Fixed the integration test policy to sucessfully parse
+
 v1.0.0 (2015-09-23)
 -------------------
 WARNING: This is a breaking release that includes a refactor of the default behavior and the inclusion of a LWRP

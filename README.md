@@ -11,10 +11,10 @@ Default recipe installs and manages AppArmor service, or disables and removes Ap
 - Debian
 
 #### Chef
-- Chef 11+
+- Chef 12+
 
 #### Cookbooks
-- none
+- compat_resource
 
 ## Attributes
 - `default['apparmor']['disable']`: Controls installing or removing apparmor service in the `default.rb` recipe.  Defaults to false which installs apparmor, starts the service, and enables the service.
@@ -23,7 +23,7 @@ Default recipe installs and manages AppArmor service, or disables and removes Ap
 ### default.rb
 This recipe either installs or removes the apparmor package and starts / enables the service depending on the state of `default['apparmor']['disable']`.
 
-##Resource/Provider
+##Custom Resources
 ###Policy
 Adds or removes Apparmor policies
 #### Actions
