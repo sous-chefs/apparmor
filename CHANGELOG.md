@@ -2,6 +2,10 @@ apparmor Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the apparmor cookbook.
 
+v2.0.1 (2015-11-10)
+-------------------
+- Fix usage of variables in the custom resource
+
 v2.0.0 (2015-10-22)
 -------------------
 - Converted the LWRP to a 12.5 custom resource with 12.X compatibility provided by compat_resource. This cookbook now requires Chef 12
