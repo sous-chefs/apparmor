@@ -30,7 +30,7 @@ Adds or removes Apparmor policies
 - :add: Adds a new Apparmor policy using a provided policy file
 - :remove: Removes a specified Apparmor policy
 
-#### Attribute Parameters
+#### Properties
 - :name: Name attribute. The name of the policy as stored in /etc/apparmor.d/.
 - :source_cookbook: Cookbook to source the policy file from if the provider is not in the same cookbook.
 - :source_filename: Name of the source file in the cookbook if it doesn't match the name attribute.
