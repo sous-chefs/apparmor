@@ -10,5 +10,7 @@ depends 'compat_resource'
 
 recipe 'apparmor::default', 'Disables apparmor service on Ubuntu'
 
-source_url 'https://github.com/chef-cookbooks/apparmor' if respond_to?(:source_url)
-issues_url 'https://github.com/chef-cookbooks/apparmor/issues' if respond_to?(:issues_url)
+source_url 'https://github.com/chef-cookbooks/apparmor'
+issues_url 'https://github.com/chef-cookbooks/apparmor/issues'
+
+chef_version '>= 12.1' if respond_to?(:chef_version)
