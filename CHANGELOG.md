@@ -2,6 +2,12 @@ apparmor Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the apparmor cookbook.
 
+## 2.0.2 (2016-09-15)
+- Disable FC016
+- Format markdown and clarify that we require Chef 12.1
+- Add chef_version metadata and remove chef 11 compat code
+- Depend on compat_resource 12.14+
+
 v2.0.1 (2015-11-10)
 -------------------
 - Fix usage of variables in the custom resource
