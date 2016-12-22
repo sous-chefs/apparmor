@@ -2,6 +2,12 @@ apparmor Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the apparmor cookbook.
 
+## 2.0.3 (2016-12-22)
+- Remove Gemfile.lock file
+- Depend on the latest compat_resource
+- Add ChefSpec matchers
+- Cookstyle and copyright header updates
+
 ## 2.0.2 (2016-09-15)
 - Disable FC016
 - Format markdown and clarify that we require Chef 12.1
