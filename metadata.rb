@@ -6,7 +6,7 @@ description 'Disables apparmor service on Ubuntu'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '2.0.2'
 supports 'ubuntu'
-depends 'compat_resource', '>= 12.14.7'
+depends 'compat_resource', '>= 12.16.3'
 
 recipe 'apparmor::default', 'Disables apparmor service on Ubuntu'
 
