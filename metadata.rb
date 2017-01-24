@@ -12,4 +12,4 @@ recipe 'apparmor::default', 'Disables apparmor service on Ubuntu'
 
 source_url 'https://github.com/chef-cookbooks/apparmor'
 issues_url 'https://github.com/chef-cookbooks/apparmor/issues'
-chef_version '>= 12.1'
+chef_version '>= 12.1' if respond_to?(:chef_version)
