@@ -13,11 +13,11 @@ Default recipe installs and manages AppArmor service, or disables and removes Ap
 
 ### Chef
 
-- Chef 12.1+
+- Chef 12.5+
 
 ### Cookbooks
 
-- compat_resource
+- none
 
 ## Attributes
 

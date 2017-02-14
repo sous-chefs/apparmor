@@ -20,7 +20,6 @@ services: docker
 
 env:
   matrix:
-  - INSTANCE=disable-ubuntu-1204
   - INSTANCE=disable-ubuntu-1404
   - INSTANCE=disable-ubuntu-1604
 

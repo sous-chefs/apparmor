@@ -14,11 +14,6 @@ verifier:
   sudo: false
 
 platforms:
-- name: ubuntu-12.04
-  driver:
-    image: ubuntu-upstart:12.04
-    pid_one_command: /sbin/init
-
 - name: ubuntu-14.04
   driver:
     image: ubuntu-upstart:14.04
