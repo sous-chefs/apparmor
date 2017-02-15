@@ -2,6 +2,11 @@ apparmor Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the apparmor cookbook.
 
+## 3.0.0 (2017-02-14)
+
+- Require Chef 12.5 and remove compat_resource
+- Added integration testing in Travis CI
+
 ## 2.0.3 (2016-12-22)
 - Remove Gemfile.lock file
 - Depend on the latest compat_resource
