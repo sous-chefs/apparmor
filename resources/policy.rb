@@ -21,9 +21,9 @@ property :source_cookbook, String
 property :source_filename, String
 
 action :add do
-  cookbook_file "/etc/apparmor.d/#{name}" do
-    cookbook source_cookbook if source_cookbook
-    source source_filename if source_filename
+  cookbook_file "/etc/apparmor.d/#{new_resource.name}" do
+    cookbook new_resource.source_cookbook if new_resource.source_cookbook
+    source new_resource.source_filename if new_resource.source_filename
     owner 'root'
     group 'root'
     mode '0644'
@@ -37,7 +37,7 @@ action :add do
 end
 
 action :remove do
-  file "/etc/apparmor.d/#{name}" do
+  file "/etc/apparmor.d/#{new_resource.name}" do
     action :delete
     notifies :reload, 'service[apparmor]', :immediately
   end

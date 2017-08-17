@@ -1,7 +1,7 @@
 driver:
   name: dokken
   privileged: true # because Docker and SystemD/Upstart
-  chef_version: current
+  chef_version: <%= ENV['CHEF_VERSION'] || 'current' %>
 
 transport:
   name: dokken
@@ -11,30 +11,19 @@ provisioner:
   deprecations_as_errors: true
 
 verifier:
-  root_path: '/opt/verifier'
-  sudo: false
+  name: inspec
 
 platforms:
 - name: ubuntu-14.04
   driver:
-    image: ubuntu-upstart:14.04
+    image: dokken/ubuntu-14.04
     pid_one_command: /sbin/init
+    intermediate_instructions:
+      - RUN /usr/bin/apt-get update
 
 - name: ubuntu-16.04
   driver:
-    image: ubuntu:16.04
+    image: dokken/ubuntu-16.04
     pid_one_command: /bin/systemd
-
-suites:
-  - name: disable
-    run_list:
-      - recipe[apparmor::default]
-    attributes:
-      apparmor:
-        disable: true
-  - name: add
-    run_list:
-       - recipe[apparmor_test::add]
-  - name: remove
-    run_list:
-       - recipe[apparmor_test::remove]
+    intermediate_instructions:
+      - RUN /usr/bin/apt-get update
