@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the apparmor cookbook.
 
+## 3.0.2 (2017-11-14)
+
+- Resolve FC108 warning
+
 ## 3.0.1 (2017-08-17)
 
 - Test with local delivery and not Rake
