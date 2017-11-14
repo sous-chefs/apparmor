@@ -16,7 +16,6 @@
 # See the License for the specific language governing permissions and
 #
 
-property :name, String, name_attribute: true
 property :source_cookbook, String
 property :source_filename, String
 
