@@ -31,5 +31,5 @@ if platform_family?('debian')
     action actions
     supports [:restart, :reload, :status]
     stop_command '/usr/sbin/service apparmor teardown'
-  end
+  end unless node['apparmor']['disable']
 end
