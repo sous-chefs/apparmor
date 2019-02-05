@@ -20,16 +20,23 @@
 
 if platform_family?('debian')
   package_action = node['apparmor']['disable'] ? :remove : :install
+  service_actions = node['apparmor']['disable'] ? [:stop, :disable] : [:start, :enable]
+
   Chef::Log.info "package_action: #{package_action.inspect}"
+
+  execute 'apparmor_teardown' do
+    command '/usr/sbin/service apparmor teardown'
+    ignore_failure true
+    only_if { package_action == :remove && ::File.exist?('/lib/apparmor/functions') }
+  end
 
   package 'apparmor' do
     action package_action
   end
 
-  actions = node['apparmor']['disable'] ? [:stop, :disable] : [:start, :enable]
   service 'apparmor' do
-    action actions
+    action service_actions
     supports [:restart, :reload, :status]
-    stop_command '/usr/sbin/service apparmor teardown'
-  end unless node['apparmor']['disable']
+  end
 end
+
