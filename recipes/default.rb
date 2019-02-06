@@ -39,4 +39,3 @@ if platform_family?('debian')
     supports [:restart, :reload, :status]
   end
 end
-
