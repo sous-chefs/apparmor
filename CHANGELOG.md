@@ -2,6 +2,16 @@
 
 This file is used to list changes made in each version of the apparmor cookbook.
 
+## 3.1.0 (2019-08-05)
+
+- Remove ChefSpec matchers which are no longer necessary - [@tas50](https://github.com/tas50)
+- Test Ubuntu 18.04 - [@tas50](https://github.com/tas50)
+- Require Chef 12.7 or later - [@tas50](https://github.com/tas50)
+- Remove EOL Ubuntu 14.04 testing - [@tas50](https://github.com/tas50)
+- fix failures when removing apparmor on Ubuntu 18.04
+- Remove respond_to in the metaadata - [@tas50](https://github.com/tas50)
+- Modernize testing setup - [@tas50](https://github.com/tas50)
+
 ## 3.0.2 (2017-11-14)
 
 - Resolve FC108 warning
