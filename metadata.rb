@@ -8,4 +8,4 @@ supports 'ubuntu'
 
 source_url 'https://github.com/chef-cookbooks/apparmor'
 issues_url 'https://github.com/chef-cookbooks/apparmor/issues'
-chef_version '>= 12.7'
+chef_version '>= 12.15'
