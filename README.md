@@ -39,46 +39,6 @@ The following resources are provided:
 
 - [apparmor_policy](documentation/apparmor_policy.md)
 
-### Policy
-
-Adds or removes Apparmor policies
-
-#### Actions
-
-- :add: Adds a new Apparmor policy using a provided policy file
-- :remove: Removes a specified Apparmor policy
-
-#### Properties
-
-- :name: Name attribute. The name of the policy as stored in /etc/apparmor.d/.
-- :source_cookbook: Cookbook to source the policy file from if the provider is not in the same cookbook.
-- :source_filename: Name of the source file in the cookbook if it doesn't match the name attribute.
-
-#### Examples
-
-Add the policy my_super_app where a cookbook file exists in the same cookbook and is named my_super_app
-
-```ruby
-apparmor_policy 'my_super_app'
-```
-
-Add the policy my_super_app where a cookbook file exists in a different cookbook and the file is named my_super_app_am_policy
-
-```ruby
-apparmor_policy 'my_super_app' do
-  source_cookbook 'acme_apparmor_profiles'
-  source_filename 'my_super_app_am_policy'
-end
-```
-
-Remove the policy my_super_app
-
-```ruby
-apparmor_policy 'my_super_app' do
-  action  :remove
-end
-```
-
 ## Maintainers
 
 This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of Chef cookbook maintainers working together to maintain important cookbooks. If you’d like to know more please visit [sous-chefs.org](https://sous-chefs.org/) or come chat with us on the Chef Community Slack in [#sous-chefs](https://chefcommunity.slack.com/messages/C2V7B88SF).
