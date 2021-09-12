@@ -3,7 +3,7 @@ driver:
 
 provisioner:
   name: chef_infra
-  product_name: cinc
+  product_name: chef
   product_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
   chef_license: accept-no-persist
   multiple_converge: 2
