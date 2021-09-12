@@ -18,3 +18,4 @@
 #
 
 default['apparmor']['disable'] = false
+default['apparmor']['automatic_reboot'] = false

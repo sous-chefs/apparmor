@@ -18,6 +18,7 @@
 
 property :source_cookbook, String
 property :source_filename, String
+unified_mode true
 
 action :add do
   cookbook_file "/etc/apparmor.d/#{new_resource.name}" do
@@ -39,10 +40,15 @@ action :remove do
   file "/etc/apparmor.d/#{new_resource.name}" do
     action :delete
     notifies :reload, 'service[apparmor]', :immediately
+    notifies :run, 'execute[aa-remove-unknown]', :immediately
   end
 
   service 'apparmor' do
     supports status: true, restart: true, reload: true
-    action [:nothing]
+    action :nothing
+  end
+
+  execute 'aa-remove-unknown' do
+    action :nothing
   end
 end

@@ -21,6 +21,7 @@
 if platform_family?('debian')
   package_action = node['apparmor']['disable'] ? :remove : :install
   service_actions = node['apparmor']['disable'] ? [:stop, :disable] : [:start, :enable]
+  file_action = node['apparmor']['disable'] ? :create : :delete
 
   Chef::Log.info "package_action: #{package_action.inspect}"
 
@@ -37,5 +38,21 @@ if platform_family?('debian')
   service 'apparmor' do
     action service_actions
     supports [:restart, :reload, :status]
+  end
+
+  file '/etc/default/grub.d/apparmor.cfg' do
+    content 'GRUB_CMDLINE_LINUX_DEFAULT="$GRUB_CMDLINE_LINUX_DEFAULT apparmor=0"'
+    action file_action
+    notifies :run, 'execute[update-grub]'
+    notifies :reboot_now, 'reboot[apparmor_state_change]' if node['apparmor']['automatic_reboot']
+  end
+
+  execute 'update-grub' do
+    action :nothing
+  end
+
+  reboot 'apparmor_state_change' do
+    reason 'Changing the AppArmor state requires a reboot'
+    action :nothing
   end
 end
