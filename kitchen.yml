@@ -12,13 +12,15 @@ provisioner:
   log_level: <%= ENV['CHEF_LOG_LEVEL'] || 'auto' %>
   # Allow reboots
   max_retries: 60
-  wait_for_retry: 300
+  wait_for_retry: 90
   root_path: /var/tmp/kitchen
 
 verifier:
   name: inspec
 
 platforms:
+  - name: debian-9
+  - name: debian-10
   - name: ubuntu-18.04
   - name: ubuntu-20.04
 
@@ -32,7 +34,7 @@ suites:
         automatic_reboot: true
     verifier:
       inspec_tests:
-        - path: test/integration/inspec
+        - path: test/integration/common
       inputs:
         enabled: false
   - name: add
