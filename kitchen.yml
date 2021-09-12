@@ -37,10 +37,10 @@ suites:
         enabled: false
   - name: add
     run_list:
-       - recipe[apparmor_test::add]
+      - recipe[apparmor_test::add]
   - name: remove
     run_list:
-       - recipe[apparmor_test::remove]
+      - recipe[apparmor_test::remove]
     provisioner:
       multiple_converge: 1
       enforce_idempotency: false
