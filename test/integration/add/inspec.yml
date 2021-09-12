@@ -1,0 +1,7 @@
+---
+name: apparmor-add
+title: Add AppArmor policy
+
+depends:
+  - name: apparmor-common
+    path: test/integration/common
