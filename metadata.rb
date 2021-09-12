@@ -6,6 +6,6 @@ description       'Disables apparmor service on Ubuntu'
 version           '3.1.0'
 source_url        'https://github.com/sous-chefs/apparmor'
 issues_url        'https://github.com/sous-chefs/apparmor/issues'
-chef_version      '>= 12.15'
+chef_version      '>= 15.3'
 
 supports 'ubuntu'
