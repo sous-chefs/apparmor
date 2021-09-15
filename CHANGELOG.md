@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the apparmor cookbook.
 
-## Unreleased
+## 4.0.0 - *2021-09-15*
 
 - Sous Chef Adoption
 - Enable `unified_mode` and require Chef 15.3 or later
