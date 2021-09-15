@@ -4,6 +4,8 @@ This file is used to list changes made in each version of the apparmor cookbook.
 
 ## Unreleased
 
+- Fix issues when running in a docker container
+
 ## 4.0.0 - *2021-09-15*
 
 - Sous Chef Adoption

@@ -45,6 +45,7 @@ if platform_family?('debian')
     action file_action
     notifies :run, 'execute[update-grub]'
     notifies :reboot_now, 'reboot[apparmor_state_change]' if node['apparmor']['automatic_reboot']
+    only_if { ::File.exist?('/etc/default/grub.d') }
   end
 
   execute 'update-grub' do
