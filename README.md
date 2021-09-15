@@ -12,8 +12,8 @@ Default recipe installs and manages AppArmor service, or disables and removes Ap
 
 ### Platforms
 
-- Ubuntu
-- Debian
+- Ubuntu 18.04+
+- Debian 10+
 
 ### Chef
 

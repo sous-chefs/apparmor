@@ -19,8 +19,8 @@ verifier:
   name: inspec
 
 platforms:
-  - name: debian-9
   - name: debian-10
+  - name: debian-11
   - name: ubuntu-18.04
   - name: ubuntu-20.04
 
