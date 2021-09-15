@@ -1,0 +1,7 @@
+---
+name: apparmor-remove
+title: Remove AppArmor policy
+
+depends:
+  - name: apparmor-common
+    path: test/integration/common

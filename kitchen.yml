@@ -2,16 +2,27 @@ driver:
   name: vagrant
 
 provisioner:
-  name: chef_zero
-  deprecations_as_errors: true
+  name: chef_infra
+  product_name: chef
+  product_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
   chef_license: accept-no-persist
+  multiple_converge: 2
+  enforce_idempotency: true
+  deprecations_as_errors: true
+  log_level: <%= ENV['CHEF_LOG_LEVEL'] || 'auto' %>
+  # Allow reboots
+  max_retries: 60
+  wait_for_retry: 90
+  root_path: /var/tmp/kitchen
 
 verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-16.04
+  - name: debian-10
+  - name: debian-11
   - name: ubuntu-18.04
+  - name: ubuntu-20.04
 
 suites:
   - name: disable
@@ -20,9 +31,18 @@ suites:
     attributes:
       apparmor:
         disable: true
+        automatic_reboot: true
+    verifier:
+      inspec_tests:
+        - path: test/integration/common
+      inputs:
+        enabled: false
   - name: add
     run_list:
-       - recipe[apparmor_test::add]
+      - recipe[apparmor_test::add]
   - name: remove
     run_list:
-       - recipe[apparmor_test::remove]
+      - recipe[apparmor_test::remove]
+    provisioner:
+      multiple_converge: 1
+      enforce_idempotency: false

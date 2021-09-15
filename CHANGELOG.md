@@ -2,6 +2,15 @@
 
 This file is used to list changes made in each version of the apparmor cookbook.
 
+## Unreleased
+
+- Sous Chef Adoption
+- Enable `unified_mode` and require Chef 15.3 or later
+- Add `node['apparmor']['automatic_reboot']` attribute which is set to false by default to allow for automatic rebooting after enabling or disabling AppArmor.
+- Add grub config to set `apparmor=0` when being disabled
+- Run `aa-remove-unknown` when removing a policy so that it gets properly removed
+- Add Debian testing
+
 ## 3.1.0 (2019-08-05)
 
 - Remove ChefSpec matchers which are no longer necessary - [@tas50](https://github.com/tas50)

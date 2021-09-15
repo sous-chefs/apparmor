@@ -1,6 +1,10 @@
 # apparmor Cookbook
 
-[![Build Status](https://travis-ci.org/chef-cookbooks/apparmor.svg?branch=master)](http://travis-ci.org/chef-cookbooks/apparmor) [![Cookbook Version](https://img.shields.io/cookbook/v/apparmor.svg)](https://supermarket.chef.io/cookbooks/apparmor)
+[![Cookbook Version](https://img.shields.io/cookbook/v/selnux.svg)](https://supermarket.chef.io/cookbooks/apparmor)
+[![CI State](https://github.com/sous-chefs/apparmor/workflows/ci/badge.svg)](https://github.com/sous-chefs/apparmor/actions?query=workflow%3Aci)
+[![OpenCollective](https://opencollective.com/sous-chefs/backers/badge.svg)](#backers)
+[![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Default recipe installs and manages AppArmor service, or disables and removes AppArmor depending on `default['apparmor']['disable']` attribute. Also includes a custom resource (LWRP) for managing AppArmor policies.
 
@@ -8,8 +12,8 @@ Default recipe installs and manages AppArmor service, or disables and removes Ap
 
 ### Platforms
 
-- Ubuntu
-- Debian
+- Ubuntu 18.04+
+- Debian 10+
 
 ### Chef
 
@@ -31,64 +35,35 @@ This recipe either installs or removes the apparmor package and starts / enables
 
 ## Custom Resources
 
-### Policy
+The following resources are provided:
 
-Adds or removes Apparmor policies
-
-#### Actions
-
-- :add: Adds a new Apparmor policy using a provided policy file
-- :remove: Removes a specified Apparmor policy
-
-#### Properties
-
-- :name: Name attribute. The name of the policy as stored in /etc/apparmor.d/.
-- :source_cookbook: Cookbook to source the policy file from if the provider is not in the same cookbook.
-- :source_filename: Name of the source file in the cookbook if it doesn't match the name attribute.
-
-#### Examples
-
-Add the policy my_super_app where a cookbook file exists in the same cookbook and is named my_super_app
-
-```ruby
-apparmor_policy 'my_super_app'
-```
-
-Add the policy my_super_app where a cookbook file exists in a different cookbook and the file is named my_super_app_am_policy
-
-```ruby
-apparmor_policy 'my_super_app' do
-  source_cookbook 'acme_apparmor_profiles'
-  source_filename 'my_super_app_am_policy'
-end
-```
-
-Remove the policy my_super_app
-
-```ruby
-apparmor_policy 'my_super_app' do
-  action  :remove
-end
-```
+- [apparmor_policy](documentation/apparmor_policy.md)
 
 ## Maintainers
 
-This cookbook is maintained by Chef's Community Cookbook Engineering team. Our goal is to improve cookbook quality and to aid the community in contributing to cookbooks. To learn more about our team, process, and design goals see our [team documentation](https://github.com/chef-cookbooks/community_cookbook_documentation/blob/master/COOKBOOK_TEAM.MD). To learn more about contributing to cookbooks like this see our [contributing documentation](https://github.com/chef-cookbooks/community_cookbook_documentation/blob/master/CONTRIBUTING.MD), or if you have general questions about this cookbook come chat with us in #cookbok-engineering on the [Chef Community Slack](http://community-slack.chef.io/)
+This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of Chef cookbook maintainers working together to maintain important cookbooks. If you’d like to know more please visit [sous-chefs.org](https://sous-chefs.org/) or come chat with us on the Chef Community Slack in [#sous-chefs](https://chefcommunity.slack.com/messages/C2V7B88SF).
 
-## License
+## Contributors
 
-**Copyright:** 2009-2017, Chef Software, Inc.
+This project exists thanks to all the people who [contribute.](https://opencollective.com/sous-chefs/contributors.svg?width=890&button=false)
 
-```
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+### Backers
 
-    http://www.apache.org/licenses/LICENSE-2.0
+Thank you to all our backers!
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
+![https://opencollective.com/sous-chefs#backers](https://opencollective.com/sous-chefs/backers.svg?width=600&avatarHeight=40)
+
+### Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
+
+![https://opencollective.com/sous-chefs/sponsor/0/website](https://opencollective.com/sous-chefs/sponsor/0/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/1/website](https://opencollective.com/sous-chefs/sponsor/1/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/2/website](https://opencollective.com/sous-chefs/sponsor/2/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/3/website](https://opencollective.com/sous-chefs/sponsor/3/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/4/website](https://opencollective.com/sous-chefs/sponsor/4/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/5/website](https://opencollective.com/sous-chefs/sponsor/5/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/6/website](https://opencollective.com/sous-chefs/sponsor/6/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/7/website](https://opencollective.com/sous-chefs/sponsor/7/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/8/website](https://opencollective.com/sous-chefs/sponsor/8/avatar.svg?avatarHeight=100)
+![https://opencollective.com/sous-chefs/sponsor/9/website](https://opencollective.com/sous-chefs/sponsor/9/avatar.svg?avatarHeight=100)

@@ -1,0 +1,6 @@
+---
+name: apparmor-common
+title: Enable/Disable suite tests for the AppArmor cookbook
+inputs:
+  - name: enabled
+    value: true
