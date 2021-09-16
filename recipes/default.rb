@@ -28,7 +28,9 @@ if platform_family?('debian')
   execute 'apparmor_teardown' do
     command '/usr/sbin/service apparmor teardown'
     ignore_failure true
-    only_if { package_action == :remove && ::File.exist?('/lib/apparmor/functions') }
+    only_if do
+      package_action == :remove && ::File.exist?('/lib/apparmor/functions') && !docker?
+    end
   end
 
   package 'apparmor' do
@@ -45,7 +47,7 @@ if platform_family?('debian')
     action file_action
     notifies :run, 'execute[update-grub]'
     notifies :reboot_now, 'reboot[apparmor_state_change]' if node['apparmor']['automatic_reboot']
-    only_if { ::File.exist?('/etc/default/grub.d') }
+    not_if { docker? }
   end
 
   execute 'update-grub' do
