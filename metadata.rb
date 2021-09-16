@@ -8,4 +8,6 @@ source_url        'https://github.com/sous-chefs/apparmor'
 issues_url        'https://github.com/sous-chefs/apparmor/issues'
 chef_version      '>= 15.3'
 
+depends 'line'
+
 supports 'ubuntu'

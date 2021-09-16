@@ -22,13 +22,16 @@ if platform_family?('debian')
   package_action = node['apparmor']['disable'] ? :remove : :install
   service_actions = node['apparmor']['disable'] ? [:stop, :disable] : [:start, :enable]
   file_action = node['apparmor']['disable'] ? :create : :delete
+  line_action = node['apparmor']['disable'] ? :edit : :nothing
 
   Chef::Log.info "package_action: #{package_action.inspect}"
 
   execute 'apparmor_teardown' do
     command '/usr/sbin/service apparmor teardown'
     ignore_failure true
-    only_if { package_action == :remove && ::File.exist?('/lib/apparmor/functions') }
+    only_if do
+      package_action == :remove && ::File.exist?('/lib/apparmor/functions') && !docker?
+    end
   end
 
   package 'apparmor' do
@@ -45,6 +48,17 @@ if platform_family?('debian')
     action file_action
     notifies :run, 'execute[update-grub]'
     notifies :reboot_now, 'reboot[apparmor_state_change]' if node['apparmor']['automatic_reboot']
+    not_if { docker? || !::Dir.exist?('/etc/default/grub.d') }
+  end
+
+  # Needed on older platforms that don't support /etc/default/grub.d
+  append_if_no_line 'disable apparmor' do
+    action line_action
+    path '/etc/default/grub'
+    line 'GRUB_CMDLINE_LINUX_DEFAULT="$GRUB_CMDLINE_LINUX_DEFAULT apparmor=0"'
+    notifies :run, 'execute[update-grub]'
+    notifies :reboot_now, 'reboot[apparmor_state_change]' if node['apparmor']['automatic_reboot']
+    not_if { docker? || ::Dir.exist?('/etc/default/grub.d') }
   end
 
   execute 'update-grub' do
@@ -52,6 +66,7 @@ if platform_family?('debian')
   end
 
   reboot 'apparmor_state_change' do
+    delay_mins 1
     reason 'Changing the AppArmor state requires a reboot'
     action :nothing
   end
