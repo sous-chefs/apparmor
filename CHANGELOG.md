@@ -5,6 +5,7 @@ This file is used to list changes made in each version of the apparmor cookbook.
 ## Unreleased
 
 - Fix issues when running in a docker container
+- Fix disabling apparmor on Ubuntu 18.04
 - Set `delay_mins` to 1 to help with CI problems
 
 ## 4.0.0 - *2021-09-15*
