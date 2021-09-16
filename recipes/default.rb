@@ -55,6 +55,7 @@ if platform_family?('debian')
   end
 
   reboot 'apparmor_state_change' do
+    delay_mins 1
     reason 'Changing the AppArmor state requires a reboot'
     action :nothing
   end
