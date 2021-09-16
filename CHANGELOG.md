@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the apparmor cookbook.
 
+## Unreleased
+
 ## 4.1.0 - *2021-09-16*
 
 - Fix issues when running in a docker container
