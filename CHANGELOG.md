@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the apparmor cookbook.
 
-## Unreleased
+## 4.1.2 - *2023-02-13*
 
 ## 4.1.1 - *2023-02-13*
 
