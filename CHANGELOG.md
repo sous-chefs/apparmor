@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the apparmor cookbook.
 
-## Unreleased
+## 4.1.5 - *2023-03-01*
 
 - Update workflows to 2.0.1
 - Remove mdl and replace with markdownlint-cli2
