@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the apparmor cookbook.
 
+## Unreleased
+
 ## 4.1.6 - *2023-03-02*
 
 - Fix yaml
