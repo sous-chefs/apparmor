@@ -8,13 +8,14 @@ name: ci
 
 jobs:
   lint-unit:
-    uses: sous-chefs/.github/.github/workflows/lint-unit.yml@4.0.0
+    uses: sous-chefs/.github/.github/workflows/lint-unit.yml@5.0.3
     permissions:
       actions: write
       checks: write
       pull-requests: write
       statuses: write
       issues: write
+    secrets: inherit
 
   integration:
     needs: lint-unit
@@ -36,11 +37,12 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v5
       - name: Install Chef
-        uses: actionshub/chef-install@3.0.1
+        uses: actionshub/chef-install@main
       - name: test-kitchen
-        uses: actionshub/test-kitchen@3.0.0
+        uses: actionshub/test-kitchen@main
         env:
           CHEF_LICENSE: accept-no-persist
+          KITCHEN_LOCAL_YAML: kitchen.dokken.yml
         with:
           suite: ${{ matrix.suite }}
           os: ${{ matrix.os }}
@@ -50,3 +52,9 @@ jobs:
           set -x
           sudo journalctl -l --since today
           KITCHEN_LOCAL_YAML=kitchen.dokken.yml /usr/bin/kitchen exec ${{ matrix.suite }}-${{ matrix.os }} -c "journalctl -l"
+
+  final:
+    runs-on: ubuntu-latest
+    needs: [integration]
+    steps:
+      - run: echo ${{needs.integration.outputs}}

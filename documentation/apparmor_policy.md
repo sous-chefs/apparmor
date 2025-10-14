@@ -1,6 +1,6 @@
-[Back to resource list](../README.md#resources)
-
 # apparmor_policy
+
+[Back to resource list](../README.md#resources)
 
 Adds or removes AppArmor policies
 
