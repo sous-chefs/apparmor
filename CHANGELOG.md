@@ -2,6 +2,14 @@
 
 This file is used to list changes made in each version of the apparmor cookbook.
 
+## [4.1.14](https://github.com/sous-chefs/apparmor/compare/apparmor-v4.1.13...apparmor-v4.1.14) (2025-10-15)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#56](https://github.com/sous-chefs/apparmor/issues/56)) ([d3c4cc4](https://github.com/sous-chefs/apparmor/commit/d3c4cc47ac651c29895d1e997b6a400119417e3e))
+* **ci:** Update workflows to use release pipeline ([#57](https://github.com/sous-chefs/apparmor/issues/57)) ([e691ca9](https://github.com/sous-chefs/apparmor/commit/e691ca9032c6397b50f845980939976ef5abdcc2))
+
 ## 4.1.6 - *2023-03-02*
 
 * Fix yaml
