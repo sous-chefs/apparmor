@@ -19,7 +19,7 @@ jobs:
 
   integration:
     needs: lint-unit
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         os:
