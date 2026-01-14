@@ -1,0 +1,45 @@
+---
+version: "3"
+
+tasks:
+  test:
+    desc: Run kitchen test for a specific suite (without Dokken)
+    cmds:
+      - kitchen test {{.CLI_ARGS}}
+    env:
+      KITCHEN_LOCAL_YAML: ""
+
+  test:all:
+    desc: Run all kitchen tests (without Dokken)
+    cmds:
+      - kitchen test
+    env:
+      KITCHEN_LOCAL_YAML: ""
+
+  converge:
+    desc: Run kitchen converge for a specific suite
+    cmds:
+      - kitchen converge {{.CLI_ARGS}}
+    env:
+      KITCHEN_LOCAL_YAML: ""
+
+  verify:
+    desc: Run kitchen verify for a specific suite
+    cmds:
+      - kitchen verify {{.CLI_ARGS}}
+    env:
+      KITCHEN_LOCAL_YAML: ""
+
+  destroy:
+    desc: Destroy kitchen instances
+    cmds:
+      - kitchen destroy {{.CLI_ARGS}}
+    env:
+      KITCHEN_LOCAL_YAML: ""
+
+  list:
+    desc: List kitchen instances
+    cmds:
+      - kitchen list
+    env:
+      KITCHEN_LOCAL_YAML: ""

@@ -21,13 +21,11 @@ control 'apparmor-common' do
     end
   end
 
-  if virtualization.system != 'docker'
-    describe file '/sys/module/apparmor/parameters/enabled' do
-      if enabled
-        its('content') { should cmp "Y\n" }
-      else
-        its('content') { should cmp "N\n" }
-      end
+  describe file '/sys/module/apparmor/parameters/enabled' do
+    if enabled
+      its('content') { should cmp "Y\n" }
+    else
+      its('content') { should cmp "N\n" }
     end
   end
 end

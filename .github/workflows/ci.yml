@@ -19,13 +19,12 @@ jobs:
 
   integration:
     needs: lint-unit
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os:
-          - debian-12
-          - ubuntu-2204
-          - ubuntu-2404
+          - ubuntu-22.04
+          - ubuntu-24.04
         suite:
           - disable
           - add
@@ -41,7 +40,7 @@ jobs:
         uses: actionshub/test-kitchen@main
         env:
           CHEF_LICENSE: accept-no-persist
-          KITCHEN_LOCAL_YAML: kitchen.dokken.yml
+          KITCHEN_LOCAL_YAML: kitchen.exec.yml
         with:
           suite: ${{ matrix.suite }}
           os: ${{ matrix.os }}
@@ -50,7 +49,6 @@ jobs:
         run: |
           set -x
           sudo journalctl -l --since today
-          KITCHEN_LOCAL_YAML=kitchen.dokken.yml /usr/bin/kitchen exec ${{ matrix.suite }}-${{ matrix.os }} -c "journalctl -l"
 
   final:
     runs-on: ubuntu-latest
