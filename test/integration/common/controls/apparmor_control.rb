@@ -1,7 +1,7 @@
 enabled = input('enabled')
 
 control 'apparmor-common' do
-  title 'Verify AppArmor is disabled or disabled'
+  title 'Verify AppArmor is enabled or disabled'
 
   describe package 'apparmor' do
     if enabled
@@ -11,21 +11,23 @@ control 'apparmor-common' do
     end
   end
 
-  describe service 'apparmor' do
-    if enabled
+  if enabled
+    describe service 'apparmor' do
       it { should be_enabled }
       it { should be_running }
-    else
-      it { should_not be_enabled }
+    end
+
+    describe file '/sys/module/apparmor/parameters/enabled' do
+      its('content') { should cmp "Y\n" }
+    end
+  else
+    describe service 'apparmor' do
       it { should_not be_running }
     end
-  end
 
-  describe file '/sys/module/apparmor/parameters/enabled' do
-    if enabled
-      its('content') { should cmp "Y\n" }
-    else
-      its('content') { should cmp "N\n" }
+    describe file '/etc/default/grub.d/apparmor.cfg' do
+      it { should exist }
+      its('content') { should match(/apparmor=0/) }
     end
   end
 end
