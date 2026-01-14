@@ -10,4 +10,5 @@ chef_version      '>= 15.3'
 
 depends 'line'
 
+supports 'debian'
 supports 'ubuntu'
