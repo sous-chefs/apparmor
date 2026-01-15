@@ -1,23 +1,23 @@
 # apparmor Cookbook
 
-[![Cookbook Version](https://img.shields.io/cookbook/v/selnux.svg)](https://supermarket.chef.io/cookbooks/apparmor)
+[![Cookbook Version](https://img.shields.io/cookbook/v/apparmor.svg)](https://supermarket.chef.io/cookbooks/apparmor)
 [![CI State](https://github.com/sous-chefs/apparmor/workflows/ci/badge.svg)](https://github.com/sous-chefs/apparmor/actions?query=workflow%3Aci)
 [![OpenCollective](https://opencollective.com/sous-chefs/backers/badge.svg)](#backers)
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Default recipe installs and manages AppArmor service, or disables and removes AppArmor depending on `default['apparmor']['disable']` attribute. Also includes a custom resource (LWRP) for managing AppArmor policies.
+The default recipe installs and manages the AppArmor service, or disables and removes AppArmor depending on the `default['apparmor']['disable']` attribute. This cookbook also provides a custom resource for managing AppArmor policy files.
 
 ## Requirements
 
 ### Platforms
 
-- Ubuntu 18.04+
-- Debian 10+
+- Ubuntu 22.04+
+- Debian 12+
 
 ### Chef
 
-- Chef 12.7+
+- Chef 15.3+
 
 ### Cookbooks
 
@@ -25,7 +25,8 @@ Default recipe installs and manages AppArmor service, or disables and removes Ap
 
 ## Attributes
 
-- `default['apparmor']['disable']`: Controls installing or removing apparmor service in the `default.rb` recipe. Defaults to false which installs apparmor, starts the service, and enables the service.
+- `default['apparmor']['disable']`: Controls installing or removing the AppArmor service in the `default.rb` recipe. Defaults to `false`, which installs AppArmor, starts the service, and enables it.
+- `default['apparmor']['automatic_reboot']`: Controls whether the recipe triggers an immediate reboot after changing the GRUB AppArmor flag. Defaults to `false`.
 
 ## Recipes
 

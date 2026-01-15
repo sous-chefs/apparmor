@@ -1,20 +1,20 @@
 # apparmor_policy
 
-[Back to resource list](../README.md#resources)
+[Back to resource list](../README.md#custom-resources)
 
-Adds or removes AppArmor policies
+Adds or removes AppArmor policy files.
 
 ## Actions
 
 | Action    | Description                                             |
-| --------- | ------------------------------------------------------- |
+|-----------|---------------------------------------------------------|
 | `:add`    | Adds a new AppArmor policy using a provided policy file |
 | `:remove` | Removes a specified AppArmor policy                     |
 
 ## Properties
 
 | Name              | Type   | Default       | Description                                                                          |
-| ----------------- | ------ | ------------- | ------------------------------------------------------------------------------------ |
+|-------------------|--------|---------------|--------------------------------------------------------------------------------------|
 | `name`            | String | Resource name | The name of the policy as stored in `/etc/apparmor.d/`                               |
 | `source_cookbook` | String |               | Cookbook to source the policy file from if the provider is not in the same cookbook. |
 | `source_filename` | String |               | Name of the source file in the cookbook if it doesn't match the name attribute       |
