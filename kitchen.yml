@@ -19,10 +19,9 @@ verifier:
   name: inspec
 
 platforms:
-  - name: debian-10
-  - name: debian-11
-  - name: ubuntu-18.04
-  - name: ubuntu-20.04
+  - name: debian-12
+  - name: ubuntu-22.04
+  - name: ubuntu-24.04
 
 suites:
   - name: disable
