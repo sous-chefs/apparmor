@@ -6,29 +6,28 @@ Adds or removes AppArmor policy files.
 
 ## Actions
 
-| Action    | Description                                             |
-|-----------|---------------------------------------------------------|
-| `:add`    | Adds a new AppArmor policy using a provided policy file |
-| `:remove` | Removes a specified AppArmor policy                     |
+| Action    | Description                                                       |
+|-----------|-------------------------------------------------------------------|
+| `:add`    | Adds a new AppArmor policy using a provided policy file (default) |
+| `:remove` | Removes a specified AppArmor policy                               |
 
 ## Properties
 
-| Name              | Type   | Default       | Description                                                                          |
-|-------------------|--------|---------------|--------------------------------------------------------------------------------------|
-| `name`            | String | Resource name | The name of the policy as stored in `/etc/apparmor.d/`                               |
-| `source_cookbook` | String |               | Cookbook to source the policy file from if the provider is not in the same cookbook. |
-| `source_filename` | String |               | Name of the source file in the cookbook if it doesn't match the name attribute       |
+| Property          | Type   | Default       | Description                                                         |
+|-------------------|--------|---------------|---------------------------------------------------------------------|
+| `name`            | String | Resource name | The name of the policy as stored in `/etc/apparmor.d/`              |
+| `source_cookbook` | String |               | Cookbook to source the policy file from if not in the same cookbook |
+| `source_filename` | String |               | Name of the source file if it doesn't match the resource name       |
 
 ## Examples
 
-Add the policy `my_super_app` where a cookbook file exists in the same cookbook and is named `my_super_app`
+### Basic usage
 
 ```ruby
 apparmor_policy 'my_super_app'
-
 ```
 
-Add the policy `my_super_app` where a cookbook file exists in a different cookbook and the file is named `my_super_app_am_policy`
+### Policy from a different cookbook
 
 ```ruby
 apparmor_policy 'my_super_app' do
@@ -37,10 +36,10 @@ apparmor_policy 'my_super_app' do
 end
 ```
 
-Remove the policy `my_super_app`
+### Remove a policy
 
 ```ruby
 apparmor_policy 'my_super_app' do
-  action  :remove
+  action :remove
 end
 ```
