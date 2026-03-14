@@ -1,0 +1,9 @@
+---
+name: default
+title: Default suite - AppArmor enabled
+maintainer: Sous Chefs
+license: Apache-2.0
+summary: Verify AppArmor is installed and running
+version: 1.0.0
+supports:
+  - platform-family: debian

@@ -1,0 +1,9 @@
+---
+name: disable
+title: Disable suite - AppArmor disabled
+maintainer: Sous Chefs
+license: Apache-2.0
+summary: Verify AppArmor is disabled and removed
+version: 1.0.0
+supports:
+  - platform-family: debian
