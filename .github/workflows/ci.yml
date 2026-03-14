@@ -23,12 +23,14 @@ jobs:
     strategy:
       matrix:
         os:
+          - debian-12
           - ubuntu-2204
           - ubuntu-2404
         suite:
+          - default
           - disable
-          - add
-          - remove
+          - policy-add
+          - policy-remove
       fail-fast: false
 
     steps:
