@@ -1,0 +1,10 @@
+# vim:syntax=apparmor
+#include <tunables/global>
+
+/usr/sbin/my_policy {
+  #include <abstractions/base>
+
+  capability net_raw,
+
+  /sbin/fake_app r,
+}
