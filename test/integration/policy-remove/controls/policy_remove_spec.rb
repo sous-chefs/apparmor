@@ -29,7 +29,7 @@ control 'apparmor-policy-remove-03' do
   impact 1.0
   title 'Policy is not loaded in AppArmor'
 
-  describe command('apparmor_status') do
+  describe command('sudo apparmor_status') do
     its('stdout') { should_not match %r{/usr/sbin/my_policy} }
   end
 end

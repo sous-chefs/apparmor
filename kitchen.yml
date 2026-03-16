@@ -20,46 +20,41 @@ verifier:
 
 platforms:
   - name: debian-12
+  - name: debian-13
   - name: ubuntu-22.04
   - name: ubuntu-24.04
 
-x-run_lists:
-  default: &default_run_list
-    - recipe[test::default]
-  disable: &disable_run_list
-    - recipe[test::disable]
-  policy_add: &policy_add_run_list
-    - recipe[test::policy_add]
-  policy_remove: &policy_remove_run_list
-    - recipe[test::policy_remove]
-
 suites:
   - name: default
-    run_list: *default_run_list
-    verifier:
-      inspec_tests:
-        - path: test/integration/default
+    run_list:
+      - recipe[test::default]
+    # verifier:
+    #   inspec_tests:
+    #     - path: test/integration/default
 
   - name: disable
-    run_list: *disable_run_list
+    run_list:
+      - recipe[test::disable]
     provisioner:
       max_retries: 60
       wait_for_retry: 90
-    verifier:
-      inspec_tests:
-        - path: test/integration/disable
+    # verifier:
+    #   inspec_tests:
+    #     - path: test/integration/disable
 
   - name: policy-add
-    run_list: *policy_add_run_list
-    verifier:
-      inspec_tests:
-        - path: test/integration/policy-add
+    run_list:
+      - recipe[test::policy_add]
+    # verifier:
+    #   inspec_tests:
+    #     - path: test/integration/policy-add
 
   - name: policy-remove
-    run_list: *policy_remove_run_list
+    run_list:
+      - recipe[test::policy_remove]
     provisioner:
       multiple_converge: 1
       enforce_idempotency: false
-    verifier:
-      inspec_tests:
-        - path: test/integration/policy-remove
+    # verifier:
+    #   inspec_tests:
+    #     - path: test/integration/policy-remove
