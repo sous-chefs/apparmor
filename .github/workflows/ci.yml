@@ -72,7 +72,7 @@ jobs:
           KITCHEN_LOCAL_YAML: kitchen.exec.yml
         with:
           suite: ${{ matrix.suite }}
-          os: ubuntu-24.04
+          os: ubuntu-2404
       - name: Print debug output on failure
         if: failure()
         run: |
