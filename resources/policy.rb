@@ -19,6 +19,7 @@ action :add do
   service 'apparmor' do
     supports status: true, restart: true, reload: true
     action [:nothing]
+    not_if { docker? }
   end
 end
 
@@ -32,6 +33,7 @@ action :remove do
   service 'apparmor' do
     supports status: true, restart: true, reload: true
     action :nothing
+    not_if { docker? }
   end
 
   execute 'aa-remove-unknown' do
