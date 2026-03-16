@@ -4,17 +4,11 @@ title 'Policy remove suite'
 
 control 'apparmor-policy-remove-01' do
   impact 1.0
-  title 'AppArmor package is installed'
+  title 'AppArmor is installed and running'
 
   describe package('apparmor') do
     it { should be_installed }
   end
-end
-
-control 'apparmor-policy-remove-01a' do
-  impact 1.0
-  title 'AppArmor service is running'
-  only_if('not in Docker') { !file('/.dockerenv').exist? }
 
   describe service('apparmor') do
     it { should be_enabled }
@@ -34,7 +28,6 @@ end
 control 'apparmor-policy-remove-03' do
   impact 1.0
   title 'Policy is not loaded in AppArmor'
-  only_if('not in Docker') { !file('/.dockerenv').exist? }
 
   describe command('apparmor_status') do
     its('stdout') { should_not match %r{/usr/sbin/my_policy} }

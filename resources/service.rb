@@ -13,7 +13,6 @@ action :create do
   service 'apparmor' do
     supports status: true, restart: true, reload: true
     action [:start, :enable]
-    not_if { docker? }
   end
 
   file '/etc/default/grub.d/apparmor.cfg' do

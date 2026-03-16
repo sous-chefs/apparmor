@@ -14,7 +14,6 @@ end
 control 'apparmor-service-02' do
   impact 1.0
   title 'AppArmor service is running'
-  only_if('not in Docker') { !file('/.dockerenv').exist? }
 
   describe service('apparmor') do
     it { should be_enabled }
