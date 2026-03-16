@@ -38,5 +38,6 @@ action :remove do
 
   execute 'aa-remove-unknown' do
     action :nothing
+    not_if { docker? }
   end
 end
