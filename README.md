@@ -6,7 +6,7 @@
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The default recipe installs and manages the AppArmor service, or disables and removes AppArmor depending on the `default['apparmor']['disable']` attribute. This cookbook also provides a custom resource for managing AppArmor policy files.
+This cookbook provides custom resources for managing AppArmor on Debian-family platforms. Use `apparmor_service` to install or disable the AppArmor service, and `apparmor_policy` to manage individual AppArmor policy files.
 
 ## Requirements
 
@@ -19,25 +19,11 @@ The default recipe installs and manages the AppArmor service, or disables and re
 
 - Chef 15.3+
 
-### Cookbooks
-
-- none
-
-## Attributes
-
-- `default['apparmor']['disable']`: Controls installing or removing the AppArmor service in the `default.rb` recipe. Defaults to `false`, which installs AppArmor, starts the service, and enables it.
-- `default['apparmor']['automatic_reboot']`: Controls whether the recipe triggers an immediate reboot after changing the GRUB AppArmor flag. Defaults to `false`.
-
-## Recipes
-
-### default.rb
-
-This recipe either installs or removes the apparmor package and starts / enables the service depending on the state of `default['apparmor']['disable']`.
-
 ## Custom Resources
 
 The following resources are provided:
 
+- [apparmor_service](documentation/apparmor_service.md)
 - [apparmor_policy](documentation/apparmor_policy.md)
 
 ## Maintainers

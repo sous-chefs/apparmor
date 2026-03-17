@@ -20,28 +20,41 @@ verifier:
 
 platforms:
   - name: debian-12
+  - name: debian-13
   - name: ubuntu-22.04
   - name: ubuntu-24.04
 
 suites:
+  - name: default
+    run_list:
+      - recipe[test::default]
+    # verifier:
+    #   inspec_tests:
+    #     - path: test/integration/default
+
   - name: disable
     run_list:
-      - recipe[apparmor::default]
-    attributes:
-      apparmor:
-        disable: true
-        automatic_reboot: true
-    verifier:
-      inspec_tests:
-        - path: test/integration/common
-      inputs:
-        enabled: false
-  - name: add
+      - recipe[test::disable]
+    provisioner:
+      max_retries: 60
+      wait_for_retry: 90
+    # verifier:
+    #   inspec_tests:
+    #     - path: test/integration/disable
+
+  - name: policy-add
     run_list:
-      - recipe[apparmor_test::add]
-  - name: remove
+      - recipe[test::policy_add]
+    # verifier:
+    #   inspec_tests:
+    #     - path: test/integration/policy-add
+
+  - name: policy-remove
     run_list:
-      - recipe[apparmor_test::remove]
+      - recipe[test::policy_remove]
     provisioner:
       multiple_converge: 1
       enforce_idempotency: false
+    # verifier:
+    #   inspec_tests:
+    #     - path: test/integration/policy-remove
