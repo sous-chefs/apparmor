@@ -2,6 +2,17 @@
 
 This file is used to list changes made in each version of the apparmor cookbook.
 
+## [5.0.0](https://github.com/sous-chefs/apparmor/compare/apparmor-v4.1.15...apparmor-v5.0.0) (2026-03-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* recipes/default.rb and attributes removed. Use apparmor_service resource instead.
+
+### Features
+
+* modernize cookbook to custom resources ([#69](https://github.com/sous-chefs/apparmor/issues/69)) ([e351250](https://github.com/sous-chefs/apparmor/commit/e351250f5a58995da04115ec8f6034544dc786d0))
+
 ## [4.1.15](https://github.com/sous-chefs/apparmor/compare/apparmor-v4.1.14...apparmor-v4.1.15) (2026-01-15)
 
 
