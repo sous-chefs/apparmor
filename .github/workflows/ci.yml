@@ -8,7 +8,7 @@ name: ci
 
 jobs:
   lint-unit:
-    uses: sous-chefs/.github/.github/workflows/lint-unit.yml@5.0.3
+    uses: sous-chefs/.github/.github/workflows/lint-unit.yml@feat/cinc-workstation-install
     permissions:
       actions: write
       checks: write
@@ -34,12 +34,11 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v5
-      - name: Install Chef
-        uses: actionshub/chef-install@main
+      - name: Install Workstation
+        uses: sous-chefs/.github/.github/actions/install-workstation@feat/cinc-workstation-install
       - name: Dokken
         uses: actionshub/test-kitchen@main
         env:
-          CHEF_LICENSE: accept-no-persist
           KITCHEN_LOCAL_YAML: kitchen.dokken.yml
         with:
           suite: ${{ matrix.suite }}
@@ -64,12 +63,11 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v5
-      - name: Install Chef
-        uses: actionshub/chef-install@main
+      - name: Install Workstation
+        uses: sous-chefs/.github/.github/actions/install-workstation@feat/cinc-workstation-install
       - name: test-kitchen
         uses: actionshub/test-kitchen@main
         env:
-          CHEF_LICENSE: accept-no-persist
           KITCHEN_LOCAL_YAML: kitchen.exec.yml
         with:
           suite: ${{ matrix.suite }}
