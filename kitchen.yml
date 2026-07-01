@@ -26,6 +26,8 @@ platforms:
 
 suites:
   - name: default
+    provisioner:
+      named_run_list: default
     run_list:
       - recipe[test::default]
     # verifier:
@@ -33,16 +35,19 @@ suites:
     #     - path: test/integration/default
 
   - name: disable
-    run_list:
-      - recipe[test::disable]
     provisioner:
+      named_run_list: disable
       max_retries: 60
       wait_for_retry: 90
+    run_list:
+      - recipe[test::disable]
     # verifier:
     #   inspec_tests:
     #     - path: test/integration/disable
 
   - name: policy-add
+    provisioner:
+      named_run_list: policy_add
     run_list:
       - recipe[test::policy_add]
     # verifier:
@@ -50,11 +55,12 @@ suites:
     #     - path: test/integration/policy-add
 
   - name: policy-remove
-    run_list:
-      - recipe[test::policy_remove]
     provisioner:
+      named_run_list: policy_remove
       multiple_converge: 1
       enforce_idempotency: false
+    run_list:
+      - recipe[test::policy_remove]
     # verifier:
     #   inspec_tests:
     #     - path: test/integration/policy-remove
