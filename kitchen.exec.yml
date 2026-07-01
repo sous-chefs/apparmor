@@ -7,7 +7,10 @@ transport:
 
 provisioner:
   name: chef_infra
+  product_name: cinc
   chef_omnibus_install: false
+  install_strategy: skip
+  chef_client_path: /opt/cinc-workstation/bin/chef-client
   sudo: true
   multiple_converge: 2
   enforce_idempotency: true
