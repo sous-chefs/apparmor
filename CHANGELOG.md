@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the apparmor cookbook.
 
+## [5.0.1](https://github.com/sous-chefs/apparmor/compare/apparmor-v5.0.0...apparmor-v5.0.1) (2026-10-10)
+
+
+### Bug Fixes
+
+* sync AppArmor cookbook release versions ([#175](https://github.com/sous-chefs/apparmor/issues/175)) ([7cae613](https://github.com/sous-chefs/apparmor/commit/7cae613049b222a153af55023992f6d7c374ca34))
+
 ## [5.0.0](https://github.com/sous-chefs/apparmor/compare/apparmor-v4.1.15...apparmor-v5.0.0) (2026-03-17)
 
 
